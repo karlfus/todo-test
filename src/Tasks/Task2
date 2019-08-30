@@ -1,0 +1,13 @@
+TASK 2
+
+As a user, I want to be able to reorder my 
+todos. When I choose the '▲' button, 
+the todo should move up 1 position. The 
+ID and all other properties of the todo 
+should remain the same. If the todo is 
+already at the top, nothing should happen. 
+When I choose the '▼' button, the todo 
+should move down 1 position. The ID and 
+all other properties of the todo should 
+remain the same. If the todo is already 
+at the bottom, nothing should happen.

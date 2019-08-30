@@ -1,0 +1,12 @@
+TASK 1
+
+As a user, I want to be able to mark todos as
+completed and uncompleted. When the Complete 
+button is clicked, the todo text on the same
+row should have a strike through it and the 
+item in the list should be marked 
+as completed: true. Similary, when the Uncomplete 
+button is clicked, the todo text on the same 
+row should have no styling and the item be 
+marked as completed: false.
+

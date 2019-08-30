@@ -1,0 +1,10 @@
+TASK 3
+
+As a user, I want to be able to add a new 
+todo using the input field. Once I have 
+entered the todo text, I should be able 
+to click the 'Add New' button and the new 
+todo should be appear at the bottom of the 
+list as uncompleted. The input field should 
+only allow non empty strings to be added as 
+new todos.

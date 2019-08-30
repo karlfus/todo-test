@@ -1,0 +1,12 @@
+button {
+  margin-left: 6px;
+}
+
+li {
+  margin-top: 3px;
+}
+
+.todo-completed {
+  text-decoration: line-through;
+  font-weight: 900;
+}
