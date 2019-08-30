@@ -7,19 +7,16 @@ export class App extends React.Component {
     todos: [
       {
         id: 1,
-        index: 0,
         name: "Buy Groceries",
         completed: false
       },
       {
         id: 2,
-        index: 1,
         name: "Cancel Amazon Tester",
         completed: true
       },
       {
         id: 3,
-        index: 2,
         name: "Walk the dog",
         completed: false
       }
@@ -33,8 +30,16 @@ export class App extends React.Component {
     });
   }
 
-  move(todo, direction) {
+  move(index, direction) {
+    const todos = this.state.todos;
+    const newLoc = index + direction;
 
+    if (newLoc > todos.length || newLoc < 0)
+      return;
+
+    //const todo = todos.splice(index, 1)[0];
+    todos.splice(newLoc, 0, todos.splice(index, 1)[0]);
+    this.setState({ todos });
   }
 
  /* 
@@ -59,7 +64,6 @@ export class App extends React.Component {
     const todos = this.state.todos;
     todos.push({
       id: todos.length + 1,
-      index: todos.length,
       name: this.state.input,
       completed: false
     });
@@ -76,7 +80,6 @@ export class App extends React.Component {
   }
 
   render() {
-    //console.log(this.state);
     return (
       <div>
         <h1>Pace Todos</h1>
@@ -87,19 +90,18 @@ export class App extends React.Component {
         <table>
           <tbody>
             {this.state.todos
-              .sort((a, b) => a.index - b.index)
-              .map(todo => {
+              .map((todo, idx) => {
                 return (
                   <tr
                     key={`todo-${todo.id}`}
                     className={todo.completed ? "todo-completed" : null}
                   >
                     <td>
-                      {todo.index + 1}.&nbsp;{todo.name}
+                      {todo.id}.&nbsp;{todo.name}
                     </td>
                     <td>
-                      <button onClick={() => this.move(todo, -1)}>▲</button>
-                      <button onClick={() => this.move(todo, +1)}>▼</button>
+                      <button onClick={() => this.move(idx, -1)}>▲</button>
+                      <button onClick={() => this.move(idx, +1)}>▼</button>
                       <button onClick={() => this.clickComplete(todo)}>
                         {todo.completed ? "Incomplete" : "Complete"}
                       </button>
